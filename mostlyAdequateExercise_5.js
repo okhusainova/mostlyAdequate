@@ -31,8 +31,11 @@ var isLastInStock = function(cars) {
   return _.prop('in_stock', last_car);
 };
 
+
+//Решение Упражнения 1:
 var lst = _.prop('in_stock');
 var myFunc = compose(_.last, _.map(lst));
+//Конец решения Упражнения 1:
 
 isLastInStock(CARS);
 myFunc(CARS);
