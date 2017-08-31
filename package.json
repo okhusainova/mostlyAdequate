@@ -9,6 +9,9 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "rambda": "^0.8.7"
+    "accounting": "^0.4.1",
+    "lodash": "^4.17.4",
+    "lodash.curry": "^4.1.1",
+    "ramda": "^0.24.1"
   }
 }

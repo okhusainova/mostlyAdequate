@@ -1,5 +1,17 @@
 var _ = require('ramda');
 var accounting = require('accounting');
+var curry = require('lodash.curry');
+
+var compose = function(f,g) {
+    return function(x) {
+        return f(g(x));
+    };
+};
+
+var trace = curry(function(tag, x){
+    console.log('tag', tag, 'x', x);
+    return x;
+});
   
 // Тестовые данные
 var CARS = [
@@ -19,4 +31,9 @@ var isLastInStock = function(cars) {
   return _.prop('in_stock', last_car);
 };
 
-var myFunc = compose(_.last(), _.prop('in_stock'));
+var lst = _.prop('in_stock');
+var myFunc = compose(_.last, _.map(lst));
+
+isLastInStock(CARS);
+myFunc(CARS);
+
