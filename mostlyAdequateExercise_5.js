@@ -31,11 +31,30 @@ var isLastInStock = function(cars) {
   return _.prop('in_stock', last_car);
 };
 
-
 //Решение Упражнения 1:
 var myFunc = compose(_.last, _.map(_.prop('in_stock')));
-//Конец решения Упражнения 1:
+//Конец решения Упражнения 1
+
+// Упражнение 2:
+// ============
+// используйте _.compose(), _.prop() and _.head() чтобы получить название первой машины
+var nameOfFirstCar = undefined;
+
+//Решение Упражнения 2:
+var nameOfFirstCar = _.compose(_.head(), _.map(_.prop('name')));
+//Конец решения Упражнения 2
+
+
+// Упражнение 3:
+// ============
+// используйте функцию _average для того чтобы отрефакторить averageDollarValue с помощью композиции
+var _average = function(xs) { return _.reduce(_.add, 0, xs) / xs.length; }; // <- оставьте эту функцию
+
+var averageDollarValue = function(cars) {
+    var dollar_values = _.map(function(c) { return c.dollar_value; }, cars);
+    return _average(dollar_values);
+};
 
 isLastInStock(CARS);
 myFunc(CARS);
-
+nameOfFirstCar(CARS).log
