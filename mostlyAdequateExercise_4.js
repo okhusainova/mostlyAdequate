@@ -33,7 +33,7 @@ var filterQs = function(xs) {
 };
 
 //Решение Упражнение 2
-const myfilterQs = _.filter(match(/q/i));
+const myfilterQs = _.filter(match(/q/i)); //???????
 // Конец решения Упражнения 2
 
 // Упражнение 3
